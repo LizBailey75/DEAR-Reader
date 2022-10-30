@@ -2,14 +2,14 @@ const router = require('express').Router();
 const Books = require('../models/Books');
 
 //This route accidentally gets the homepage, we need a different route for books
-router.get('/', async (req, res) => {
-  const bookData = await Books.findAll().catch((err) => {
-    res.json(err);
-  });
-    const book = bookData.map((book) => book.get
-    ({ plain: true }));
-    res.render('login.handlebars', { book });
-  });
+//router.get('/', async (req, res) => {
+////  const bookData = await Books.findAll().catch((err) => {
+ //   res.json(err);
+//  });
+//    const book = bookData.map((book) => book.get
+//    ({ plain: true }));
+//    res.render('/login', { book });
+ // });
 
   // This can be the route for books
   router.get('/book', async (req, res) => {
@@ -70,3 +70,4 @@ router.get('/', async (req, res) => {
 // });
 
 // module.exports = router;
+//
