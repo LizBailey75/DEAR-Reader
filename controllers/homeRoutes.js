@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Books = require('../models/Books');
 
+<<<<<<< HEAD
 //This route accidentally gets the homepage, we need a different route for books
 //router.get('/', async (req, res) => {
 ////  const bookData = await Books.findAll().catch((err) => {
@@ -10,8 +11,34 @@ const Books = require('../models/Books');
 //    ({ plain: true }));
 //    res.render('/login', { book });
  // });
+=======
+//This takes us to our hompage where user can login in
+//FIRST PAGE OF WEBSITE
+router.get('/', async (req, res) => {
+  const bookData = await Books.findAll().catch((err) => {
+    res.json(err);
+  });
+    const book = bookData.map((book) => book.get
+    ({ plain: true }));
+    //This tells what page to get
+    res.render('login.handlebars', { book });
+  });
+>>>>>>> c0d30f32e10b9904b19df185a15237d4ea2c9e19
 
-  // This can be the route for books
+//This goes to the page where user can add a review
+//SECOND PAGE
+router.get('/user', async (req, res) => {
+  const bookData = await Books.findAll().catch((err) => {
+    res.json(err);
+  });
+    const book = bookData.map((book) => book.get
+    ({ plain: true }));
+    //This tells what page to get
+    res.render('homepage.handlebars', { book });
+  });
+
+  // This goes to page where book data should go
+  //*Third Page
   router.get('/book', async (req, res) => {
     const bookData = await Books.findAll().catch((err) => {
       res.json(err);
@@ -23,6 +50,7 @@ const Books = require('../models/Books');
     });
 
   // Route to get one book
+  //NOT WORKING
   router.get('/book/:id', async (req, res) => {
     try {
       const bookData = await Book.findByPk(req.params.id);
@@ -38,6 +66,7 @@ const Books = require('../models/Books');
   });
 
   module.exports = router;
+<<<<<<< HEAD
 
 // const { User, Books } = require('../models');
 // //const withAuth = require('../utils/auth');
@@ -71,3 +100,5 @@ const Books = require('../models/Books');
 
 // module.exports = router;
 //
+=======
+>>>>>>> c0d30f32e10b9904b19df185a15237d4ea2c9e19

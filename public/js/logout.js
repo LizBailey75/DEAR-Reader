@@ -1,3 +1,5 @@
+//This doesn't go anywhere yet or appear anywhere yet on our site
+
 const logout = async () => {
     const response = await fetch('/api/users/logout', {
       method: 'POST',

@@ -1,3 +1,4 @@
+// OUR LOGIN BUTTONS DON'T WORK... I'm not sure what this page is doing...?
 
 async function loginFormHandler(event) {
   event.preventDefault();
@@ -75,6 +76,7 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     // Send the e-mail and password to the server
+    //Where does /api/users/login go to?
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),

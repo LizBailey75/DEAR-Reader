@@ -1,3 +1,5 @@
+// Do seed.js and index.js do the samge thing?
+ 
 const sequelize = require('../config/connection');
 const { User, Books, Comments } = require('../models');
 

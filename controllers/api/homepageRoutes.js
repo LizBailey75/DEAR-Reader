@@ -7,19 +7,19 @@ const { Comments } = require('../models');
 //const withAuth = require('../utils/auth');
 
 //route to show all reviews for a single book
-router.get('/bookRoutes', (req, res) => {
-        Comments.findAll({
-        where: { title: req.body.bookId },
-        attributes: { include: ['user_id', 'comment', 'stars'] },
-        order:  [['user_id', 'ASC']],
-        }); 
-    const comments = CommentsData.map((Comments) => 
-      Comments.get ({plain: true }));
-    res.json(Comments);
-    })
-    .catch((err) => {
-    res.status(500).json(err);
-    });
+// router.get('/book', (req, res) => {
+//         Comments.findAll({
+//         where: { title: req.body.bookId },
+//         attributes: { include: ['user_id', 'comment', 'stars'] },
+//         order:  [['user_id', 'ASC']],
+//         }); 
+//     const comments = CommentsData.map((Comments) => 
+//       Comments.get ({plain: true }));
+//     res.json(Comments);
+//     })
+//     .catch((err) => {
+//     res.status(500).json(err);
+//     });
 
 
 
