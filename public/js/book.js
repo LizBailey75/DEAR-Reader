@@ -1,3 +1,5 @@
+// I don't think this page does anything yet
+
 const express = require('express');
 const app = express();
 const port = 3001;
@@ -12,7 +14,7 @@ app.engine('hbs', handlebars.engine ({
     layoutsDir: `${__dirname}/views/layouts`,
     extname: 'hbs',
     defaultLayout: 'index',
-    partialsDir: `${__dirname}/views/partials`,
+    //partialsDir: `${__dirname}/views/partials`,
 }));
 
 app.use(express.static('public'));
@@ -44,6 +46,7 @@ const fakeApi = () => {
 ]
 }
 
+//I don't think this example works
 app.get('/', (req, res) => {
   res.render('main', {layout: 'index', suggestedChamps: fakeApi()});
 });

@@ -1,3 +1,5 @@
+//What does this page do?
+
 //What does router.post('./create') do?
 const router = require('express').Router();
 
