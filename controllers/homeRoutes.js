@@ -1,17 +1,32 @@
 const router = require('express').Router();
 const Books = require('../models/Books');
 
-//This route accidentally gets the homepage, we need a different route for books
+//This takes us to our hompage where user can login in
+//FIRST PAGE OF WEBSITE
 router.get('/', async (req, res) => {
   const bookData = await Books.findAll().catch((err) => {
     res.json(err);
   });
     const book = bookData.map((book) => book.get
     ({ plain: true }));
+    //This tells what page to get
     res.render('login.handlebars', { book });
   });
 
-  // This can be the route for books
+//This goes to the page where user can add a review
+//SECOND PAGE
+router.get('/user', async (req, res) => {
+  const bookData = await Books.findAll().catch((err) => {
+    res.json(err);
+  });
+    const book = bookData.map((book) => book.get
+    ({ plain: true }));
+    //This tells what page to get
+    res.render('homepage.handlebars', { book });
+  });
+
+  // This goes to page where book data should go
+  //*Third Page
   router.get('/book', async (req, res) => {
     const bookData = await Books.findAll().catch((err) => {
       res.json(err);
@@ -23,6 +38,7 @@ router.get('/', async (req, res) => {
     });
 
   // Route to get one book
+  //NOT WORKING
   router.get('/book/:id', async (req, res) => {
     try {
       const bookData = await Book.findByPk(req.params.id);
@@ -38,35 +54,3 @@ router.get('/', async (req, res) => {
   });
 
   module.exports = router;
-
-// const { User, Books } = require('../models');
-// //const withAuth = require('../utils/auth');
-
-// router.get('/user',/* withAuth,*/ async (req, res) => {
-//   try {
-//     const userData = await User.findAll({
-//       attributes: { exclude: ['password'] },
-//       order: [['name', 'ASC']],
-//     });
-
-//     const users = userData.map((user) => user.get({ plain: true }));
-
-//     res.render('/user', {
-//       users,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.get('/login', (req, res) => {
-//   if (req.session.logged_in) {
-//     res.redirect('/');
-//     return;
-//   }
-
-//   res.render('login');
-// });
-
-// module.exports = router;
