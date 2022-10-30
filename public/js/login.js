@@ -1,3 +1,4 @@
+// OUR LOGIN BUTTONS DON'T WORK... I'm not sure what this page is doing...?
 
 async function loginFormHandler(event) {
   event.preventDefault();
