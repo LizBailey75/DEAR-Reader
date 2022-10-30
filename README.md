@@ -65,7 +65,12 @@
 
   <a name = 'questions'></a>
   ## Questions / Contact Details
+
   This app can be found on the github page at (https://lizbailey75.github.io/DEAR-Reader/).
   DEAR-Reader
+
+  This app can be found on the HEROKU page at (https://github.com/LizBailey75).
+  LizBailey75
+
 
   If you have any questions or need to contact me about this app, I can be reached on Github or by email at [Collaboration](Collaboration)
