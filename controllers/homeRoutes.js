@@ -1,17 +1,29 @@
 const router = require('express').Router();
 const Books = require('../models/Books');
 
-//This route accidentally gets the homepage, we need a different route for books
+//This takes us to our hompage where user can login in
 router.get('/', async (req, res) => {
   const bookData = await Books.findAll().catch((err) => {
     res.json(err);
   });
     const book = bookData.map((book) => book.get
     ({ plain: true }));
+    //This tells what page to get
     res.render('login.handlebars', { book });
   });
 
-  // This can be the route for books
+//This goes to the page where user can add a review
+router.get('/user', async (req, res) => {
+  const bookData = await Books.findAll().catch((err) => {
+    res.json(err);
+  });
+    const book = bookData.map((book) => book.get
+    ({ plain: true }));
+    //This tells what page to get
+    res.render('homepage.handlebars', { book });
+  });
+
+  // This goes to page where book data should go
   router.get('/book', async (req, res) => {
     const bookData = await Books.findAll().catch((err) => {
       res.json(err);

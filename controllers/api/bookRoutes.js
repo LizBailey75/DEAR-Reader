@@ -3,17 +3,17 @@ const Books = require('../../models/Books');
 
 // Route to create a book for review
 //(NOT WORKING< ONLY BRINGING UP BOOK>HANDLBARES PAGE WITH NO DATA)
-router.get('/', async (req, res) => {
-  const bookData = await Books.findAll().catch((err) => {    
-    res.json(err);
-  });
+// router.get('/book', async (req, res) => {
+//   const bookData = await Books.findAll().catch((err) => {    
+//     res.json(err);
+//   });
 
   
   // Is this the sequelize function?
     // const books = bookData.map((book) => book.get
     // ({ plain: true }));
     // res.render('book', { books });
-  });
+  // });
 
 // Route to create/add a book
 router.post('/api/book', async (req, res) => {
