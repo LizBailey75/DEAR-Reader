@@ -1,86 +1,30 @@
-// I don't think this page does anything yet
+async function loadBooks() {
+  const response = await fetch("/book");
+  const books = await response.json();
 
-const express = require('express');
-const app = express();
-const port = 3001;
+  return books;
 
-const handlebars = require('express-handlebars');
-
-app.set('view engine', 'hbs');
-
-//hbs is a shorthand extension name for handlebars
-
-app.engine('hbs', handlebars.engine ({
-    layoutsDir: `${__dirname}/views/layouts`,
-    extname: 'hbs',
-    defaultLayout: 'index',
-    //partialsDir: `${__dirname}/views/partials`,
-}));
-
-app.use(express.static('public'));
-
-// To dynamically inject a value that we get 
-//from a database or api inside the file to send 
-//Set it inside the object of the render method
-const fakeApi = () => {
-  return [{
-    name: 'Katarina',
-    lane: 'midlaner'
-},
-{
-    name: 'Jayce',
-    lane: 'toplaner'
-},
-{
-    name: 'Heimerdinger',
-    lane: 'toplaner'
-},
-{
-    name: 'Zed',
-    lane: 'midlaner'
-},
-{
-    name: 'Azir',
-    lane: 'midlaner'
 }
-]
-}
+//does this work?
+fetch(`bookData.json`)
+.then(async (data) => {
+    if (data.ok) {
+        data = await data.json()
+        //Here you have your data...
+    }
 
-//I don't think this example works
-app.get('/', (req, res) => {
-  res.render('main', {layout: 'index', suggestedChamps: fakeApi()});
+}).catch(e => console.log('Connection error', e))
+
+
+document.addEventListener("DOMcontentLoaded", async () => {
+  let books = [];
+  try {
+    books = await loadBooks();
+  } catch (e) {
+    console.log("Error!");
+    console.log(e);
+  }
+  
+  console.log(books);
 });
-
-// app.listen(port, () => {
-//   console.log(`App listening to port ${port}`);
-// });
-
-
-  //   const response = await fetch(`/api/bookRoutes`, {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       book_title,
-  //       author,
-  //       synopsis,
-  //       pagecount,
-  //       genre,
-  //       user_id
-  //     }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   });
-  // console.log(response)
-  //   if (response.ok) {
-  //     document.location.replace('/book');
-  //   } else {
-  //     alert('Failed to add book');
-  //   }
-  // }
-  
-  // document
-  //   //This is not the right syntax for .new-book-form,
-  //   // need to find the name from html or handlebars
-  //   .querySelector('.new-book-form')
-  //   .addEventListener('submit', newFormHandler);
-  
+document.body.appendChild(books)

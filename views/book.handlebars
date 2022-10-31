@@ -1,6 +1,45 @@
-<!--I think we need a book.html template to run this book.handelbars file in..
- and then link it to the add-book.js file-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Handlebars</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.js" integrity="sha512-c7SfJeKRl8g7wgL+zMGX78faYVGp+NZVQ587mRLrqeLySX/qHCQOKw/iZ5Pp64DaPjvedixWC/Fe73upnhBaRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src = "index.js"></script>
+<script src = "../public/js/book.js"></script>
+</head>
+<body>
 
+  How do we get our data to go here?
+  {{!-- {{book}} now shows object, object --}}
+ <p> book {{ book }}</p>
+
+{{!-- 
+  <div id="derekData"></div>
+
+  <script type="text/javascript">
+  
+  var myInfo = "<p>Myname is {{name}}</p>";
+
+  var template = Handlebars.compile(myInfo);
+
+  var data = template({name: "Derek"});
+
+  document.getElementById("derekData").innerHTML +=data;
+  
+  </script>
+
+{{!-- </body>
+</html> --}} --}}
+</body>
+</html>
+
+
+!-- <!--I think we need a book.html template to run this book.handelbars file in..
+ and then link it to the add-book.js file-->
+<div id="derekData"></div>
 
 <!--copied from activity 10-->
 <div class="book-card">
@@ -9,7 +48,7 @@
   </div>
   <div class="card-body">
     <p>
-      Title:
+      Test:
       {{title}}
     </p>
     <p>
@@ -32,4 +71,5 @@
   </div>
 </div>
 <!--Handlebars script source-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script> 
+<script src = "../public/js/book.js"
