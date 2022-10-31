@@ -26,8 +26,13 @@ const sess = {
 
 app.use(session(sess));
 
-app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+app.engine('handlebars', exphbs ({
+  layoutsDir: __dirname + '/views/layouts',
+  defaultLayout: 'index',
+  partialsDir: __dirname + '/views/partials'
+}));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -38,3 +43,8 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+
+app.get('/', (req, res) => {
+  //Serves the body of the page aka "login.handlebars" to the container //aka "index.handlebars"
+  res.render('login', {layout: 'index'});
+  });
