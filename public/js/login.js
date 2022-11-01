@@ -10,7 +10,7 @@ const loginFormHandler = async (event) => {
 
 console.log("password");
   if (username && password) {
-    const response = await fetch("/api/user/login", {
+    const response = await fetch("./api/user/login", {
       method: "POST",
       body: JSON.stringify({
         username,
@@ -18,11 +18,11 @@ console.log("password");
       }),
       headers: { "Content-Type": "application/json" },
     });
-
     if (response.ok) {
       document.location.replace('homepage');
     } else {
       alert(response.statusText);
+      console.log("fetch failed");
     }
   }
 }
