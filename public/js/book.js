@@ -1,3 +1,7 @@
+$(document).ready(function() {
+  console.log("page ready");
+});
+
 async function loadBooks() {
   const response = await fetch("/book");
   const books = await response.json();
