@@ -5,6 +5,10 @@ const User = require('../models/User');
 router.get('/', (req,res)=> {
   res.render('login', {layout: 'index'})
 });
+
+router.get('/home', (req, res)=> {
+  res.render('homepage', {layout: 'index'})
+});
 module.exports= router;
 
 
