@@ -1,14 +1,13 @@
-//What does this page do?
-
 //What does router.post('./create') do?
 const router = require('express').Router();
+
 const { User } = require('../../models');
 
 router.post('./create', async (req, res) => {
   try {
     const userData = await userData(req.body.email);
 //    const validPassword = await userData(req.body.password);
-  const checkUser = await User.findOne({ where: { email } });
+  const checkUser = await User.findOne({ where: { username } });
  if (userData === checkUser ) res.status(400).json({ message:  'User already exists, please try again' });
    return } catch (err) {
     res.status(400).json(err);
@@ -45,7 +44,6 @@ router.post('/login', async (req, res) => {
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
-        res.render('homepage', { layout:'index' } );
     });
   } catch (err) {
     console.log(err);

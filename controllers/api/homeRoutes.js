@@ -46,7 +46,7 @@ router.get('/user', async (req, res) => {
         return;
       }
       const book = bookData.get({ plain: true });
-      res.render('book:id', book);
+      res.render('book', book);
     } catch (err) {
       res.status(500).json(err);
     };
