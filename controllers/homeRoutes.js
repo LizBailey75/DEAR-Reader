@@ -7,6 +7,10 @@ router.get('/', (req,res)=> {
 });
 module.exports= router;
 
+router.get('/home', (req, res) => {
+  res.render('homepage', {layout: 'homepage'})
+});
+
 
 
 
