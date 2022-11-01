@@ -3,11 +3,11 @@
 //What does router.post('./create') do?
 const router = require('express').Router();
 const { User } = require('../../models');
-
+const withAuth = require('../../utils/auth');
 router.post('./create', async (req, res) => {
   try {
     const userData = await userData(req.body.email);
-//    const validPassword = await userData(req.body.password);
+   const validPassword = await userData(req.body.password);
   const checkUser = await User.findOne({ where: { email } });
  if (userData === checkUser ) res.status(400).json({ message:  'User already exists, please try again' });
    return } catch (err) {
@@ -15,7 +15,7 @@ router.post('./create', async (req, res) => {
   }
 });
      
-router.post('/login', async (req, res) => {
+router.post('/login', withAuth, async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
