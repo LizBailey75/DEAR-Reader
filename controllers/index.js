@@ -1,13 +1,13 @@
 const router = require('express').Router();
 
 
-//const apiRoutes = require('./api');
+const apiRoutes = require('./api');
 const bookRoutes = require('./api/bookRoutes');
 const userRoutes = require('./api/userRoutes');
-//const homeRoutes = require('./api/homeRoutes');
+const homeRoutes = require('./homeRoutes');
 
-//router.use('/', homeRoutes);//First page
-//router.use('/api', apiRoutes);//??  NOT WORKING?
+router.use('/', homeRoutes);//First page
+router.use('/api', apiRoutes);//??  NOT WORKING?
 router.use('/book', bookRoutes);//Third PAGE
 router.use('/user', userRoutes);//Second Page
 
