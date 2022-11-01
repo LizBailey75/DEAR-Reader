@@ -1,3 +1,7 @@
+.card {
+  background:teal;
+}
+
 #createReview{
   display: inline-block;
   text-align: center;
@@ -21,6 +25,8 @@ body{
     color: whitesmoke;
     text-align: center;
     font-family: 'Garamond' , serif;
+    text-align: center;
+    
   }
 .jumbotron {
 height: 100px;
