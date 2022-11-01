@@ -1,3 +1,13 @@
+#createReview{
+  display: inline-block;
+  text-align: center;
+  flex-direction:column;
+  justify-content: center;
+  color:whitesmoke;
+  background-color: teal;
+  margin:auto;
+}
+
 body{
 
 
@@ -8,7 +18,8 @@ body{
     background-repeat: no repeat;
     height: 100vh;
 
-
+    color: whitesmoke;
+    text-align: center;
     font-family: 'Garamond' , serif;
   }
 .jumbotron {

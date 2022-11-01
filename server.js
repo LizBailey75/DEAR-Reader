@@ -57,3 +57,7 @@ app.get('/', (req, res) => {
   //Serves the body of the page aka "login.handlebars" to the container //aka "index.handlebars"
   res.render('login', {layout: 'index'});
   });
+
+  app.get('/book', (req, res) => {
+    res.render('book', {layout: 'index'});
+});
