@@ -4,6 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+const handlebars= require('express-handlebars');
 
 
 const sequelize = require('./config/connection');
@@ -28,7 +29,7 @@ const sess = {
 app.use(session(sess));
 
 app.set('view engine', 'handlebars');
-app.engine('handlebars', exphbs ({
+app.engine('handlebars', handlebars ({
   layoutsDir: __dirname + '/views/layouts',
   defaultLayout: 'index',
   partialsDir: __dirname + '/views/partials'
