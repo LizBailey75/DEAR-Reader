@@ -1,4 +1,4 @@
-
+// OUR LOGIN BUTTONS DO WORK... I'm not sure what this page is doing...?
 $(document).ready(function() {
   console.log("page ready");
 });
@@ -19,6 +19,7 @@ console.log("password");
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
+      //replace login page with homepage
       document.location.replace('homepage');
     } else {
       alert(response.statusText);

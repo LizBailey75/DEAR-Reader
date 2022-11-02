@@ -6,12 +6,24 @@ router.get('/', (req,res)=> {
   res.render('login', {layout: 'index'})
 });
 
-router.get('/home', (req, res)=> {
+router.get('/homepage', (req, res)=> {
   res.render('homepage', {layout: 'index'})
 });
+
+
+router.get('/book', (req, res) => {
+  res.render('book', {layout: 'index'})
+});
+
+router.get('/user', (req, res) => {
+  res.render('user', {layout: 'index'})
+});
+
+router.get('/login', (req, res) => {
+  res.render('login', {layout: 'index'})
+});
+
 module.exports= router;
-
-
 
 
 

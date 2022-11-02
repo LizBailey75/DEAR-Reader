@@ -45,7 +45,7 @@ router.post('/login', withAuth, async (req, res) => {
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
-        res.render('homepage', { layout:'index' } );
+        res.render('/book', { layout:'index' } );
     });
   } catch (err) {
     console.log(err);
