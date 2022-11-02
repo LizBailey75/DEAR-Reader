@@ -1,24 +1,40 @@
+// PLEASE UPDATE THIS PAGE
+
+
+
 const router = require('express').Router();
 const Books = require('../../models/Books');
 
-// Route to create a book for review
+//Route to create a book for review
 //(NOT WORKING< ONLY BRINGING UP BOOK>HANDLBARES PAGE WITH NO DATA)
-router.get('/', async (req, res) => {
+router.get('book', async (req, res) => {
   const bookData = await Books.findAll().catch((err) => {    
     res.json(err);
   });
 
   
-  // Is this the sequelize function?
-    // const books = bookData.map((book) => book.get
-    // ({ plain: true }));
-    // res.render('book', { books });
+  //Is this the sequelize function?
+    const books = bookData.map((book) => book.get
+    ({ plain: true }));
+    console.log(books)
+    res.render('/book', { name: 'books' }, function (err, html) {
+      [
+        {
+          "title": "Where the Red Fern Grows",
+          "author": "Wilson Rawls",
+          "synopsis": "Billy, Old Dan, and Little Ann—a boy and his two dogs",
+          "pagecount": 272,
+          "genre": "Classics",
+          "user_id": "1"
+        }
+    ]
+    });
   });
 
 // Route to create/add a book
-router.post('/api/book', async (req, res) => {
+router.post('/book', async (req, res) => {
   try {
-    const bookData = await Books.create({
+    const bookData = await Books.bulkCreate({
       book_title: req.body.book_title,
       author: req.body.author,
       synopsis: req.body.synopsis,
@@ -26,7 +42,7 @@ router.post('/api/book', async (req, res) => {
       genre: req.body.genre,
       user_id: req.body.user_id
     });
-
+    res.json({"book" : "bookData"});
     res.status(200).json(bookData);
   } catch (err) {
     res.status(400).json(err);

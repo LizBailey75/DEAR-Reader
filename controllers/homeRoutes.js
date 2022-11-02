@@ -1,72 +1,82 @@
 const router = require('express').Router();
 const Books = require('../models/Books');
+const User = require('../models/User');
 
-//This route accidentally gets the homepage, we need a different route for books
-router.get('/', async (req, res) => {
-  const bookData = await Books.findAll().catch((err) => {
-    res.json(err);
-  });
-    const book = bookData.map((book) => book.get
-    ({ plain: true }));
-    res.render('login.handlebars', { book });
-  });
+router.get('/', (req,res)=> {
+  res.render('login', {layout: 'index'})
+});
 
-  // This can be the route for books
-  router.get('/book', async (req, res) => {
-    const bookData = await Books.findAll().catch((err) => {
-      res.json(err);
-    });
-    //Is this the sequelize function?
-      const book = bookData.map((book) => book.get
-      ({ plain: true }));
-      res.render('book.handlebars', { book });
-    });
+router.get('/homepage', (req, res)=> {
+  res.render('homepage', {layout: 'index'})
+});
 
-  // Route to get one book
-  router.get('/book/:id', async (req, res) => {
-    try {
-      const bookData = await Book.findByPk(req.params.id);
-      if(!bookData) {
-        res.status(404).json({message: 'No book with this id!'});
-        return;
-      }
-      const book = bookData.get({ plain: true });
-      res.render('book', book);
-    } catch (err) {
-      res.status(500).json(err);
-    };
-  });
 
-  module.exports = router;
+router.get('/book', (req, res) => {
+  res.render('book', {layout: 'index'})
+});
 
-// const { User, Books } = require('../models');
-// //const withAuth = require('../utils/auth');
+router.get('/user', (req, res) => {
+  res.render('user', {layout: 'index'})
+});
 
-// router.get('/user',/* withAuth,*/ async (req, res) => {
-//   try {
-//     const userData = await User.findAll({
-//       attributes: { exclude: ['password'] },
-//       order: [['name', 'ASC']],
+router.get('/login', (req, res) => {
+  res.render('login', {layout: 'index'})
+});
+
+module.exports= router;
+
+
+
+
+////This route gets the homepage, we need a different route for books
+//router.get('/', async (req, res) => {
+// const bookData = await Books.findAll().catch((err) => {
+//  res.json(err);
+//});
+//   const book = bookData.map((book) => book.get
+//    ({ plain: true }));
+//    res.render('/login', { book });
+ // });
+
+//This goes to the page where user can add a review
+//SECOND PAGE
+// router.get('/user', async (req, res) => {
+//   const bookData = await Books.findAll().catch((err) => {
+//     res.json(err);
+//   });
+//     const book = bookData.map((book) => book.get
+//     ({ plain: true }));
+//     //This tells what page to get
+//     res.render('homepage.handlebars', { book });
+//   });
+
+//   // This goes to page where book data should go
+//   //*Third Page
+//   router.get('/book', async (req, res) => {
+//     const bookData = await Books.findAll().catch((err) => {
+//       res.json(err);
+//     });
+//     //Is this the sequelize function?
+//       const book = bookData.map((book) => book.get
+//       ({ plain: true }));
+//       res.render('book.handlebars', { book });
 //     });
 
-//     const users = userData.map((user) => user.get({ plain: true }));
+//   // Route to get one book
+//   //NOT WORKING
+//   router.get('/book/:id', async (req, res) => {
+//     try {
+//       const bookData = await Book.findByPk(req.params.id);
+//       if(!bookData) {
+//         res.status(404).json({message: 'No book with this id!'});
+//         return;
+//       }
+//       const book = bookData.get({ plain: true });
+//       res.render('book', book);
+//     } catch (err) {
+//       res.status(500).json(err);
+//     };
+//   });
 
-//     res.render('/user', {
-//       users,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+//   module.exports = router;
 
-// router.get('/login', (req, res) => {
-//   if (req.session.logged_in) {
-//     res.redirect('/');
-//     return;
-//   }
-
-//   res.render('login');
-// });
-
-// module.exports = router;
