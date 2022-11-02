@@ -1,4 +1,3 @@
-// OUR LOGIN BUTTONS DO WORK... I'm not sure what this page is doing...?
 $(document).ready(function() {
   console.log("page ready");
 });

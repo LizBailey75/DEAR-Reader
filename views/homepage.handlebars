@@ -1,37 +1,51 @@
  <!-- Needs to be second page on site ? -->
  <!--shows all book rveiew that person rote, and  a button that open a form to add a new review-->
-<class="container-fluid text-center"> 
-      <div class="card menu-card col-l-10 bg-transparent rounded border-transparent text-centered" style="margin-left: 600px">
-        <h3 class="card-header text-white">Show book reviews.</h3>
-        <div class="card-body" id="searchBook">
-          <div form class="d-flex">
-            <input type="text" class="form-control me-2" placeholder="Book Title" id="bookId"/>
-            <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  
+    <class="container-fluid text-center"> 
+          <div class="card menu-card col-l-10 bg-transparent rounded border-transparent text-centered" style="margin-left: 600px">
+            <h3 class="card-header text-white">Show book reviews.</h3>
+            <div class="card-body" id="searchBook">
+              <div form class="d-flex">
+                <input type="text" class="form-control me-2" placeholder="Book Title" id="bookId"/>
+                <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
-            <div class="card  menu-card col-1-10 mt-0 bg-transparent rounded border-transparent text-centered" style="margin-left: 600px">
-                <h3 class="card-header text-white">Enter your review.</h3>
-                <div class="card-body" id="addComment">
-                  <div form class="d-flex">
+          <div class="card  menu-card col-1-10 mt-0 bg-transparent rounded border-transparent text-centered" style="margin-left: 600px">
+            <h3 class="card-header text-white">Enter your review.</h3>
+              <div class="card-body" id="addComment">
+                <div form class="d-flex">
                     <input type="text" class="form-control me-2" placeholder="Book Title" id="bookId"/>
                     <input type="text" class="form-control me-2" placeholder="Review" id="Comments"/>
                     <input type="number" class="form-control me-2" placeholder="1-5 Stars" id="synopsis"/>
                     <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
-                  </div>
                 </div>
+              </div>
+          </div>
+          <div class="card  menu-card col-1-10 mt-0 bg-transparent rounded border-transparent text-centered" style="margin-left: 600px">
+            <h3 class="card-header text-white">Update your previous review.</h3>
+              <div class="card-body" id="updateComment">
+                <div form class="d-flex">
+                    <input type="text" class="form-control me-2" placeholder="Book Title" id="bookId"/>
+                    <input type="text" class="form-control me-2" placeholder="Review" id="Comments"/>
+                    <input type="number" class="form-control me-2" placeholder="1-5 Stars" id="synopsis"/>
+                    <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
                 </div>
-                <div class="card  menu-card col-1-10 mt-0 bg-transparent rounded border-transparent text-centered" style="margin-left: 600px">
-                  <h3 class="card-header text-white">Update your previous review.</h3>
-                  <div class="card-body" id="updateComment">
-                    <div form class="d-flex">
-                      <input type="text" class="form-control me-2" placeholder="Book Title" id="bookId"/>
-                      <input type="text" class="form-control me-2" placeholder="Review" id="Comments"/>
-                      <input type="number" class="form-control me-2" placeholder="1-5 Stars" id="synopsis"/>
-                      <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
-                    </div>
-                  </div>
-                  </div>
+              </div>
+          </div>
+
+</body>
+</html>
 
         <script src="/js/homepage.js"></script>
         
