@@ -25,16 +25,16 @@
 
   <a name = 'technoUse'></a>
   ## Technologies Used
-  Node.js
-  Express.js
-  Handlebars.js
-  MYSQL
-  Sequelize ORM
-  Heroku
-  Material UI?
-
-  HTML 
-  CSS
+  * Node.js
+  * Express.js
+  * Handlebars.js
+  * MYSQL
+  * Sequelize ORM
+  * Heroku
+  * Material UI?
+  * HTML 
+  * CSS
+  * Bootstrap
   
   <a name = 'usefaq'></a>
   ## Usage
@@ -67,8 +67,7 @@
   ## Questions / Contact Details
 
 
-  This app can be found on the github page at (https://lizbailey75.github.io/DEAR-Reader/).
-  DEAR-Reader
+  This app can be found on the github page at [DEAR-Reader](https://lizbailey75.github.io/DEAR-Reader/).
 
   This app can be found on the github !CHANGE TO HEROKU! page at (https://github.com/LizBailey75).
 
