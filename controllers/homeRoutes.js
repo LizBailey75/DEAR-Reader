@@ -1,82 +1,82 @@
 const router = require('express').Router();
-const Books = require('../models/Books');
-const User = require('../models/User');
+const { Project, User } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', (req,res)=> {
-  res.render('login', {layout: 'index'})
+router.get('/', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const projectData = await Project.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const projects = projectData.map((project) => project.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('homepage', { 
+      projects, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.get('/homepage', (req, res)=> {
-  res.render('homepage', {layout: 'index'})
+router.get('/project/:id', async (req, res) => {
+  try {
+    const projectData = await Project.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const project = projectData.get({ plain: true });
+
+    res.render('project', {
+      ...project,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
+// Use withAuth middleware to prevent access to route
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Project }],
+    });
 
-router.get('/book', (req, res) => {
-  res.render('book', {layout: 'index'})
-});
+    const user = userData.get({ plain: true });
 
-router.get('/user', (req, res) => {
-  res.render('user', {layout: 'index'})
+    res.render('profile', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/login', (req, res) => {
-  res.render('login', {layout: 'index'})
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('login');
 });
 
-module.exports= router;
-
-
-
-
-////This route gets the homepage, we need a different route for books
-//router.get('/', async (req, res) => {
-// const bookData = await Books.findAll().catch((err) => {
-//  res.json(err);
-//});
-//   const book = bookData.map((book) => book.get
-//    ({ plain: true }));
-//    res.render('/login', { book });
- // });
-
-//This goes to the page where user can add a review
-//SECOND PAGE
-// router.get('/user', async (req, res) => {
-//   const bookData = await Books.findAll().catch((err) => {
-//     res.json(err);
-//   });
-//     const book = bookData.map((book) => book.get
-//     ({ plain: true }));
-//     //This tells what page to get
-//     res.render('homepage.handlebars', { book });
-//   });
-
-//   // This goes to page where book data should go
-//   //*Third Page
-//   router.get('/book', async (req, res) => {
-//     const bookData = await Books.findAll().catch((err) => {
-//       res.json(err);
-//     });
-//     //Is this the sequelize function?
-//       const book = bookData.map((book) => book.get
-//       ({ plain: true }));
-//       res.render('book.handlebars', { book });
-//     });
-
-//   // Route to get one book
-//   //NOT WORKING
-//   router.get('/book/:id', async (req, res) => {
-//     try {
-//       const bookData = await Book.findByPk(req.params.id);
-//       if(!bookData) {
-//         res.status(404).json({message: 'No book with this id!'});
-//         return;
-//       }
-//       const book = bookData.get({ plain: true });
-//       res.render('book', book);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     };
-//   });
-
-//   module.exports = router;
-
+module.exports = router;
