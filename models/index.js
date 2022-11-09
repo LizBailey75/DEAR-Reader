@@ -1,30 +1,44 @@
 const User = require('./User');
-const Books = require('./Books');
-const Comments = require('./Comments');
+const Project = require('./Project');
 
-User.hasMany(Books, {
-    foreignKey: 'user_id'
+User.hasMany(Project, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 
- User.hasMany(Comments, {
-     foreignKey: 'user_id'
- });
-
-Books.belongsTo(User, {
-    foreignKey: 'user_id'
+Project.belongsTo(User, {
+  foreignKey: 'user_id'
 });
 
-Books.hasMany(Comments, {
-    foreignKey: 'book_id'
-});
+module.exports = { User, Project };
 
- Comments.belongsTo(User, {
-     foreignKey: 'user_id'
- });
+// const User = require('./User');
+// const Books = require('./Books');
+// const Comments = require('./Comments');
 
-Comments.belongsTo(Books, {
-    foreignKey: 'book_id'
-});
+// User.hasMany(Books, {
+//     foreignKey: 'user_id'
+// });
 
-module.exports = { User, Books, Comments };
+//  User.hasMany(Comments, {
+//      foreignKey: 'user_id'
+//  });
+
+// Books.belongsTo(User, {
+//     foreignKey: 'user_id'
+// });
+
+// Books.hasMany(Comments, {
+//     foreignKey: 'book_id'
+// });
+
+//  Comments.belongsTo(User, {
+//      foreignKey: 'user_id'
+//  });
+
+// Comments.belongsTo(Books, {
+//     foreignKey: 'book_id'
+// });
+
+// module.exports = { User, Books, Comments };
 

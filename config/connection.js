@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
-require('handlebars');
 
 let sequelize;
 

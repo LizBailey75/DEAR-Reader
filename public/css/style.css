@@ -1,15 +1,13 @@
-.card {
-  background:teal;
+.row {
+  color: black;
 }
 
-#createReview{
-  display: inline-block;
-  text-align: center;
-  flex-direction:column;
-  justify-content: center;
-  color:whitesmoke;
-  background-color: teal;
-  margin:auto;
+h2{
+  color: white;
+}
+
+#description{
+  color:white;
 }
 
 body{
