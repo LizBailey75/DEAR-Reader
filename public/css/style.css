@@ -1,5 +1,41 @@
-.row {
+#allReviews {
   color: black;
+}
+
+#forms {
+  
+  background-color: azure;
+}
+
+ #login-form {
+  color:rgb(3, 3, 3);
+  background-color: azure;
+  padding:3rem;
+  font-size: larger;
+  align-items: center;
+}
+
+#login {
+  color:black;
+  align-items: center;
+}
+
+#signup {
+  color:black;
+  
+}
+
+#signup-form {
+  color:rgb(3, 3, 3);
+  background-color: rgb(251, 255, 240);
+  padding:3rem;
+  font-size: larger;
+  align-items: center;
+} 
+
+#forums {
+  color: black;
+  background-color: blue;
 }
 
 h2{
