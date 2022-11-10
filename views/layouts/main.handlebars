@@ -16,11 +16,30 @@
         <span role="img" aria-label="books">📚</span>
         <a href="/allReviews" id ="allReviews">All Reviews</a>
       </h1>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/profile">DEAR-Reader</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/profile">My Dashboard</a>
+                <a class="nav-link" href="/createReview">Create a Review</a>
+                <a class="nav-link" href="/allReviews">All Reviews</a>
+                <a id="logout" class="nav-link" href="/">Log Out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
+        <a href="/createReview">Create A Review</a>
         {{else}}
         <a href="/login">login</a>
         {{/if}}

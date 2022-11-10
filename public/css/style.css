@@ -1,9 +1,8 @@
 #allReviews {
   color: black;
 }
-
+/* Sign up /Login Page  */
 #forms {
-  
   background-color: azure;
 }
 
@@ -38,14 +37,15 @@
   background-color: blue;
 }
 
-h2{
-  color: white;
+#createReview {
+  float: right;
+  width:50%;
 }
 
-#description{
-  color:white;
+#currentReviews {
+  float:right;
+  padding:2rem;
 }
-
 body{
 
 
