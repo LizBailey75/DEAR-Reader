@@ -15,9 +15,10 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-    
     description: {
+      type: DataTypes.STRING,
+    },
+    author: {
       type: DataTypes.STRING,
     },
     date_created: {
