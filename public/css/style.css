@@ -25,11 +25,10 @@
 }
 
 #signup-form {
-  color:rgb(246, 242, 248);
+  color:black;
   padding:3rem;
   font-size: larger;
   align-items: center;
-  background-color: rgb(27, 67, 75);
 } 
 
 #forums {
