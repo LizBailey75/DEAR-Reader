@@ -67,7 +67,6 @@
   <a name = 'questions'></a>
   ## Questions / Contact Details
 
-=======
   This app is deployed with Heroku and can be found at https://dear-reader-22-app.herokuapp.com/
 
   If you have any questions or need to contact us about this app, we can be reached on Github.
