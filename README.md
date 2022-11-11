@@ -8,7 +8,7 @@
   ## DEAR-Reader
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
-  ![Open book with light s=rising uo from the pages](./public/css/homepageimage.jpg)
+  ![Open book with light rising up from the pages](./public/screenshot.jpg)
 
   ## Table of Contents
   * [Description](#description)
