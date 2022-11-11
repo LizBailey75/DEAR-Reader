@@ -25,16 +25,17 @@
 }
 
 #signup-form {
-  color:rgb(3, 3, 3);
-  background-color: rgb(251, 255, 240);
+  color:blue
   padding:3rem;
   font-size: larger;
   align-items: center;
+  background-color:black
 } 
 
 #forums {
   color: black;
   background-color: blue;
+  opacity: 66%;
 }
 
 #createReview {
@@ -46,6 +47,54 @@
   float:right;
   padding:2rem;
 }
+
+#navbar {
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    box-sizing: border-box;
+    font-size: x-large;
+    font-weight: 200;
+    opacity: 85%;
+}
+#navtext {
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+#brandText {
+  padding:2rem;
+  font-style:normal;
+  font-size: xx-large;
+}
+
+#profiletext {
+  padding:1rem;
+  font-style:italic;
+  font-size: xx-large;
+}
+
+#createReviewText {
+  padding:1rem;
+  font-style:italic;
+  font-size: xx-large;
+}
+
+#allReviewsText {
+  padding:2rem;
+  font-style:italic;
+  font-size: xx-large;
+}
+
+#logOutText {
+  padding:1rem;
+  font-style:italic;
+  font-size: x-small;
+}
+
 body{
 
 
