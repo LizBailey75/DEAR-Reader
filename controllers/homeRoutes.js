@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 
 router.get('/', (req, res)=> {
-  res.render('homepage', {layout: 'index'})
+  res.render('index', {layout: 'index'})
 });
 
 router.get('/login', async (req, res) => {
