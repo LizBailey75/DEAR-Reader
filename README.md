@@ -8,6 +8,8 @@
   ## DEAR-Reader
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
+  ![Open book with light rising up from the pages](./public/screenshot.jpg)
+
   ## Table of Contents
   * [Description](#description)
   * [Technologies Used](#technoUse)
@@ -25,13 +27,12 @@
 
   <a name = 'technoUse'></a>
   ## Technologies Used
-  Node.js
-  Express.js
-  Handlebars.js
-  MYSQL
-  Sequelize ORM
-  Heroku
-  Material UI?
+  * Node.js
+  * Express.js
+  * Handlebars.js
+  * MYSQL
+  * Sequelize ORM
+  * Heroku
 
   HTML 
   CSS
@@ -58,22 +59,14 @@
 
   <a name = 'contributers'></a>
   ## Contributers to this Repo
-  Elizabeth Bailey, 
-  Jatanna Patterson, 
-  Sara Milligan, 
-  Sue Morin
+  * Elizabeth Bailey, 
+  * Jatanna Patterson, 
+  * Sara Milligan, 
+  * Sue Morin
 
   <a name = 'questions'></a>
   ## Questions / Contact Details
 
+  This app is deployed with Heroku and can be found at https://dear-reader-22-app.herokuapp.com/
 
-  This app can be found on the github page at (https://lizbailey75.github.io/DEAR-Reader/).
-  DEAR-Reader
-
-  This app can be found on the github !CHANGE TO HEROKU! page at (https://github.com/LizBailey75).
-
-  This app can be found on the HEROKU page at (").
-
-
-
-  If you have any questions or need to contact me about this app, I can be reached on Github or by email at [Collaboration](Collaboration)
+  If you have any questions or need to contact us about this app, we can be reached on Github.
