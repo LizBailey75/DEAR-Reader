@@ -27,10 +27,10 @@ router.get('/login', async (req, res) => {
       projects, 
       logged_in: req.session.logged_in 
     });
-  } catch (err) {
+    } catch (err) {
     res.status(500).json(err);
-  }
-});
+    }
+  });
 
 router.get('/allReviews', async (req, res) => {
   try {

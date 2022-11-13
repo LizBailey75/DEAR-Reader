@@ -33,8 +33,11 @@
 
 #forums {
   color: rgb(153, 193, 210);
-  background-color: rgb(121, 121, 227);
   opacity: 66%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
 }
 
 #createReview {
